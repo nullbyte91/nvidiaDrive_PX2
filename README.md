@@ -23,8 +23,9 @@ Once the software flashed.
 
 ```bash
 # To install Tensorflow
-wget https://github.com/nullbyte91/nvidiaDrive_PX2/blob/master/InstallTensorFlowPX2.sh
+git clone https://github.com/nullbyte91/nvidiaDrive_PX2.git
 
+cd nvidiaDrive_PX2
 chmod a+x InstallTensorFlowPX2.sh
 bash InstallTensorFlowPX2.sh
 ```
