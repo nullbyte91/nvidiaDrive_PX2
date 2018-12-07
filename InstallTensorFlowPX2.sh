@@ -18,6 +18,21 @@ function systemUpdate()
 	sudo apt-get -y install python3-pip
 }
 
+function Cuda_env()
+{
+	# Cuda configuration
+	sudo bash -c "echo /usr/local/cuda/lib64/ > /etc/ld.so.conf.d/cuda.conf"
+	sudo ldconfig
+	#To-Do:
+	# Add the below env Manually
+	# $ sudo vim /etc/environment
+	# /usr/local/cuda/bin (including the ":") at the end of the PATH="/blah:/blah/blah" string (inside the quotes).
+
+	# cuDNN configuration
+	#To do
+	# put the following line in the end or your .bashrc file
+    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64"
+}
 function install_TensorFlow()
 {
 	# To do: Install from Google drive
@@ -40,7 +55,7 @@ function install_Keras()
 	# Python bindings for 0MQ library
 	sudo apt-get -y install python-zmq
 	sudo apt-get -y install libzmq3-dev
-	
+
 	pip3 install Cython
 	pip3 install numpy scipy matplotlib ipython jupyter pandas sympy nose
 	pip3 install keras
@@ -49,6 +64,7 @@ function install_Keras()
 #Main Starts here
 systemUpdate
 git_openssl_fix
+Cuda_env
 install_TensorFlow
 install_Keras
 
