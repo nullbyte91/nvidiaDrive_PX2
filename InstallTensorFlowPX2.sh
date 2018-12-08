@@ -1,13 +1,5 @@
 #!/bin/bash 
 
-function git_openssl_fix()
-{
-	git clone https://github.com/nullbyte91/git-openssl-debian.git
-	cd git-openssl-debian
-	chmod a+x git-openssl.sh
-	bash git-openssl.sh	
-}
-
 function systemUpdate()
 {	
 	# Update the apt package index and Upgrade the Ubuntu system
@@ -35,9 +27,7 @@ function Cuda_env()
 }
 function install_TensorFlow()
 {
-	# To do: Install from Google drive
-	#No direct download support 
-	#echo "Download from this link, https://drive.google.com/file/d/13tuNj-vLqLUA-OXPPkhMy23M4E5aDVbq/view"
+	echo "Download from this link, https://nvidia.app.box.com/v/TF170-py35-wTRT"
 	#sudo apt-get update && sudo apt-get -y install python3-pip
 	pip3 install tensorflow-1.12.0rc2-cp35-cp35m-linux_aarch64.whl
 }
@@ -63,7 +53,6 @@ function install_Keras()
 
 #Main Starts here
 systemUpdate
-git_openssl_fix
 Cuda_env
 install_TensorFlow
 install_Keras
